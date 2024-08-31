@@ -595,6 +595,9 @@ class _ParsePattern(SimpleParser[Pattern]):
             raise Unsupported("'^'")
         else:
             c = self.any_but(*self.SPECIAL_CHARS_STANDARD)
+            print(c)
+            print({c})
+            print(frozenset({c}))
             return self.repetition(_CharGroup(frozenset({c}), False))
 
     def repetition(self, base: _Repeatable):
